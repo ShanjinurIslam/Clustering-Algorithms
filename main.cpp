@@ -32,34 +32,29 @@ int main()
     
 
     int number_of_genes = m ;
-    double **distance_matrix;
-    distance_matrix = new double *[m];
-    for (int i = 0; i < m; i++)
-    {
-        distance_matrix[i] = new double[m];
-        
-    }
 
-    //calculation of distance_matrix
-
-    for (int i = 0; i < m; i++){
-        for(int j=0;j<m;j++){
-            if(i!=j){
-                distance_matrix[i][j]  = calculate_distance(le_values, i, j, n);
-            }
-            else{
-                distance_matrix[i][j] = 0;
-            }
-        }
-    }
-
+    vector<vector<double> > distance_matrix(m);
     for (int i = 0; i < m; i++)
     {
         for (int j = 0; j < m; j++)
         {
-            cout<<distance_matrix[i][j]<<" ";
+            if (i != j)
+            {
+                distance_matrix[i].push_back(calculate_distance(le_values, i, j, n));
+            }
+            else
+            {
+                distance_matrix[i].push_back(0);
+            }
         }
-        cout<<endl;
+    }
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < m; j++)
+        {
+            cout << distance_matrix[i][j] << " ";
+        }
+        cout << endl;
     }
 
     return 0;
