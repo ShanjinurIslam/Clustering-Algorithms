@@ -32,11 +32,11 @@ int main()
     
 
     int number_of_genes = m ;
-    int **distance_matrix;
-    distance_matrix = new int *[m];
+    double **distance_matrix;
+    distance_matrix = new double *[m];
     for (int i = 0; i < m; i++)
     {
-        distance_matrix[i] = new int[m];
+        distance_matrix[i] = new double[m];
         
     }
 
